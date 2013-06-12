@@ -1,0 +1,114 @@
+blueman (1.23-0ubuntu4) raring; urgency=low
+
+  * Fix for python multiarch paths; Add build dep on dh-autoreconf; Add
+    autoreconf.mk to rules
+    - update debian/control
+    - add debian/rules
+    - add debian/patches/03_python_multiarch_include.patch
+    - update debian/patches/series
+
+ -- Micah Gersten <micahg@ubuntu.com>  Sun, 06 Jan 2013 02:30:56 -0600
+
+blueman (1.23-0ubuntu3) quantal; urgency=low
+
+  * debian/patches/02_dont_crash_on_non-bluetooth_card.patch: do not crash when
+    receiving events from PulseAudio for non-bluetooth cards. (LP: #962469)
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 08 Aug 2012 13:49:37 -0400
+
+blueman (1.23-0ubuntu2) precise-proposed; urgency=low
+
+  * Cherry pick fixes from 1.23-1:
+    + Homepage field is a source declaration, not a binary
+      - update debian/control
+    + Drop XB-Python-Version from the binary package (missed in the initial
+      dh_python2 conversion)
+      - update debian/control
+  * Don't install any files in /usr/lib/nautilus-sendto (LP: #956124)
+    - update debian/rules
+
+ -- Micah Gersten <micahg@ubuntu.com>  Wed, 18 Apr 2012 02:00:28 -0500
+
+blueman (1.23-0ubuntu1) precise; urgency=low
+
+  * New upstream release (FFe: LP: #961873)
+    - fixes LP: #437883, #709171
+
+  [ Julien Lavergne <gilir@ubuntu.com> ]
+  * debian/patches:
+    - 01_dont_autostart_lxde.patch: Don't autostart applet on LXDE (LP: #958890)
+  * debian/rules:
+    - Don't use simple-patchsys.mk as the package is 3.0 (quilt)
+
+ -- Micah Gersten <micahg@ubuntu.com>  Sun, 18 Mar 2012 05:34:05 -0500
+
+blueman (1.22~bzr707-1ubuntu1) oneiric; urgency=low
+
+  * Convert to dh_python2 + FFe (LP: #836324)
+
+ -- Micah Gersten <micahg@ubuntu.com>  Sun, 25 Sep 2011 02:57:25 -0500
+
+blueman (1.22~bzr707-1) experimental; urgency=low
+
+  * Updated to revision 707 (Closes: #553326, #563758, #587674, #603357,
+    #607692)
+  * Switch to dpkg-source 3.0 (quilt) format
+  * Merged the NMU (Closes: #592077, #588019)
+
+ -- Christopher Schramm <debian@shakaweb.org>  Tue, 21 Dec 2010 09:20:00 +0200
+
+blueman (1.21-4.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * add ${python:depends}. (Closes: 592077, 588019)
+      + Thanks Jakub Wilk for the patch
+ -- Mike O'Connor <stew@debian.org>  Wed, 25 Aug 2010 22:12:19 -0400
+
+blueman (1.21-4) unstable; urgency=low
+
+  * Removed hardcoded python versions (Closes: #582649)
+
+ -- Christopher Schramm <debian@shakaweb.org>  Fri, 25 Jun 2010 12:05:00 +0200
+
+blueman (1.21-3) unstable; urgency=high
+
+  * Re-enabled network manager 0.8 support (Closes: #569536)
+  * Added dependency on hicolor-icon-theme (Closes: #569742)
+
+ -- Christopher Schramm <debian@shakaweb.org>  Mon, 15 Feb 2010 12:55:00 +0200
+ 
+blueman (1.21-2) unstable; urgency=low
+
+  * Added dependency librsvg2-common (Closes: #557336)
+  * Compiled for network manager 0.7 (Closes: #553927)
+
+ -- Christopher Schramm <debian@shakaweb.org>  Fri, 08 Jan 2010 18:35:00 +0200
+
+blueman (1.21-1) unstable; urgency=low
+
+  * Changed dependency python-gnome2 to python-gconf (Closes: #541579)
+  * New upstream release (Closes: #541301, #549496, #551033)
+
+ -- Christopher Schramm <debian@shakaweb.org>  Sun, 25 Oct 2009 17:55:00 +0200
+
+blueman (1.10-3) unstable; urgency=low
+
+  * Removed unnecessary python-pyrex runtime dependency (Closes: #532108)
+  * Removed false conflicts statement for gnome-bluetooth (Closes: #532107)
+  * Added build dependency python2.6-dev optional to python2.5-dev
+  * Added missing hal dependency
+  * Increased minimal version of to python-gtk2 to 2.14 (Closes: #535071)
+
+ -- Christopher Schramm <debian@shakaweb.org>  Mon, 29 Jun 2009 16:22:00 +0200 
+
+blueman (1.10-2) unstable; urgency=low
+
+  * First release for unstable
+
+ -- Christopher Schramm <debian@shakaweb.org>  Fri, 05 Jun 2009 16:56:26 +0200
+
+blueman (1.10-1) experimental; urgency=low
+
+  * Initial release (Closes: #517614)
+
+ -- Christopher Schramm <debian@shakaweb.org>  Fri, 24 Mar 2009 18:50:00 +0200

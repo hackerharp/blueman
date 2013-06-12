@@ -1,0 +1,15 @@
+Description: Add python multiarch include dirs
+ Use python-config to get proper include dirs
+Author: Micah Gersten <micahg@ubuntu.com>
+
+--- blueman-1.23.orig/acinclude.m4
++++ blueman-1.23/acinclude.m4
+@@ -90,7 +90,7 @@ AC_MSG_CHECKING(for headers required to
+ dnl deduce PYTHON_INCLUDES
+ py_prefix=`$PYTHON -c "import sys; print sys.prefix"`
+ py_exec_prefix=`$PYTHON -c "import sys; print sys.exec_prefix"`
+-PYTHON_INCLUDES="-I${py_prefix}/include/python${PYTHON_VERSION}"
++PYTHON_INCLUDES=`python-config --includes`
+ if test "$py_prefix" != "$py_exec_prefix"; then
+   PYTHON_INCLUDES="$PYTHON_INCLUDES -I${py_exec_prefix}/include/python${PYTHON_VERSION}"
+ fi

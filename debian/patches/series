@@ -1,0 +1,3 @@
+01_dont_autostart_lxde.patch
+02_dont_crash_on_non-bluetooth_card.patch
+03_python_multiarch_include.patch

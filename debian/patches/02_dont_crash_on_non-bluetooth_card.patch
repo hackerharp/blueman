@@ -1,0 +1,30 @@
+From: Mathieu Trudel-Lapierre <mathieu.trudel-lapierre@canonical.com>
+Subject: Avoid crashing when receiving event for cards blueman shouldn't handle
+Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/precise/+source/blueman/+bug/962469
+
+We'll run card_cb for every CHANGE or CARD event. Some of those may be for
+changes to non-bluetooth device; in which case we don't need to handle them.
+
+It's a little less efficient to do this in card_cb() than in on_pulse_event()
+directly, but doing it this way makes for much clearer code as to what we're
+trying to achieve exactly.
+
+---
+ blueman/plugins/applet/PulseAudio.py |    4 ++++
+ 1 file changed, 4 insertions(+)
+
+Index: b/blueman/plugins/applet/PulseAudio.py
+===================================================================
+--- a/blueman/plugins/applet/PulseAudio.py
++++ b/blueman/plugins/applet/PulseAudio.py
+@@ -210,6 +210,10 @@ class PulseAudio(AppletPlugin):
+ 		if (EventType.CARD | EventType.CHANGE) == event:
+ 			dprint(event)
+ 			def card_cb(c):
++				if "bluez.path" not in c["proplist"]:
++					# we're dealing with an event on a non-bluetooth device, we don't care
++					# about those.
++					return
+ 				dprint(c)
+ 				m = self.loaded_modules[c["proplist"]["bluez.path"]]
+ 				if c["owner_module"] == m.id:

@@ -1,0 +1,9 @@
+Index: blueman-1.22~bzr707/data/blueman.desktop.in
+===================================================================
+--- blueman-1.22~bzr707.orig/data/blueman.desktop.in	2010-12-27 23:13:14.000000000 +0100
++++ blueman-1.22~bzr707/data/blueman.desktop.in	2012-03-19 00:14:35.000000000 +0100
+@@ -7,3 +7,4 @@
+ Terminal=false
+ Type=Application
+ Categories=
++NotShowIn=LXDE
