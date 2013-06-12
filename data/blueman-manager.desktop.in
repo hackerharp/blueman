@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
-_Name=Bluetooth Manager
-_Comment=Blueman Bluetooth Manager
+_Name=Bluetooth
+_Comment=Configure Bluetooth settings
 Icon=blueman
 Exec=blueman-manager
 Terminal=false
