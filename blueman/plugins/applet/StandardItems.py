@@ -52,8 +52,7 @@ class StandardItems(AppletPlugin):
 		
 		self.Applet.Plugins.Menu.Register(self, self.browse, 50)
 		
-		self.Applet.Plugins.Menu.Register(self, gtk.SeparatorMenuItem(), 51)
-		
+		self.Applet.Plugins.Menu.Register(self, gtk.SeparatorMenuItem(), 51)		
 
 		self.devices = gtk.MenuItem(_("_Devices")+"...")
 		self.devices.connect("activate", self.on_devices)
@@ -70,22 +69,15 @@ class StandardItems(AppletPlugin):
 		
 		self.Applet.Plugins.Menu.Register(self, self.services, 80)
 		
-		self.Applet.Plugins.Menu.Register(self, gtk.SeparatorMenuItem(), 81)
-		
-		about = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
-		self.Applet.Plugins.Menu.Register(self, about, 90)
+		self.Applet.Plugins.Menu.Register(self, gtk.SeparatorMenuItem(), 81)		
 		
 		self.plugins = create_menuitem(_("_Plugins"), get_icon("blueman-plugin", 16))
 		self.plugins.connect("activate", self.on_plugins)
 		
-		self.Applet.Plugins.Menu.Register(self, self.plugins, 85)
-		
-		about.connect("activate", self.on_about)
+		self.Applet.Plugins.Menu.Register(self, self.plugins, 85)		
 		
 		def on_activate(status_icon):
-			self.on_devices(None)
-			
-			
+			self.on_devices(None)					
 		
 		self.Applet.Plugins.StatusIcon.connect("activate", on_activate)
 		
@@ -132,21 +124,6 @@ class StandardItems(AppletPlugin):
 	def on_local_services(self, menu_item):
 		sn = startup_notification("Blueman Services", _("Starting Service Preferences"), bin_name="blueman-services", icon="blueman")
 		spawn("blueman-services", sn=sn)
-		
-	def on_about(self, menu_item):
-		about = show_about_dialog("Blueman "+_("applet"), run=False)
-		
-		button = gtk.Button(_("Plugins"))
-		button.set_image(gtk.image_new_from_icon_name("blueman-plugin", gtk.ICON_SIZE_BUTTON))
-		button.show()
-		
-		button.connect("clicked", self.on_plugins)
-		
-		about.action_area.pack_start(button)
-		about.action_area.reorder_child(button, 0)
-		
-		about.run()
-		about.destroy()
 		
 	def on_plugins(self, button):
 		dialog = PluginDialog(self.Applet)
