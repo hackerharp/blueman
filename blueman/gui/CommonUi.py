@@ -46,7 +46,6 @@ def show_about_dialog(app_name, run=True):
 	about.set_copyright('Copyright \xc2\xa9 2008 Valmantas Palikša\n'\
 						'Copyright \xc2\xa9 2008 Tadas Dailyda')
 	about.set_comments(_('Blueman is a GTK based Bluetooth manager'))
-	about.set_website(WEBSITE)
 	about.set_icon(get_icon('blueman'))
 	about.set_logo(get_icon('blueman', 48))
 	authors = ['Valmantas Palikša <walmis@balticum-tv.lt>',

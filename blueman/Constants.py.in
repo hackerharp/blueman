@@ -1,6 +1,5 @@
 VERSION="@VERSION@"
 PACKAGE="@PACKAGE@"
-WEBSITE="http://blueman-project.org"
 PREFIX="@prefix@"
 BIN_DIR="@BINDIR@"
 ICON_PATH = "@pkgdatadir@/icons"

@@ -1,6 +1,5 @@
 VERSION="1.23"
 PACKAGE="blueman"
-WEBSITE="http://blueman-project.org"
 PREFIX="/usr/local"
 BIN_DIR="/usr/local/bin"
 ICON_PATH = "/usr/local/share/blueman/icons"
